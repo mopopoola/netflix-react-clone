@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // build image
-                    docker.build("335871625378.dkr.ecr.eu-west-2.amazonaws.com/netflix-jan:latest")
+                    docker.build("485626995157.dkr.ecr.eu-west-2.amazonaws.com/netflix-app:latest")
                }
             }
         }
@@ -27,9 +27,9 @@ pipeline {
             steps {
                 script{
                     //https://<AwsAccountNumber>.dkr.ecr.<region>.amazonaws.com/netflix-app', 'ecr:<region>:<credentialsId>
-                    docker.withRegistry('https://335871625378.dkr.ecr.eu-west-2.amazonaws.com/netflix-jan', 'ecr:eu-west-2:karo-ecr') {
+                    docker.withRegistry('https://485626995157.dkr.ecr.eu-west-2.amazonaws.com/netflix-app', 'ecr:eu-west-2:Mo-ecr-aws') {
                     // build image
-                    def myImage = docker.build("335871625378.dkr.ecr.eu-west-2.amazonaws.com/netflix-jan:latest")
+                    def myImage = docker.build("485626995157.dkr.ecr.eu-west-2.amazonaws.com/netflix-app:latest")
                     // push image
                     myImage.push()
                     }
